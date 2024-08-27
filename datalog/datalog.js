@@ -40,7 +40,7 @@ const createChart = (ctx, label, data, borderColor, backgroundColor, yAxisLabel)
     return new Chart(ctx, {
         type: 'line',
         data: {
-            labels: timeData,
+            labels: timeData, // Make sure timeData is an array of seconds
             datasets: [{
                 label: label,
                 data: data,
@@ -56,7 +56,25 @@ const createChart = (ctx, label, data, borderColor, backgroundColor, yAxisLabel)
                 x: {
                     title: {
                         display: true,
-                        text: 'Time (s) since logging started'
+                        text: 'Time'
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            // Convert seconds to a more readable format
+                            const seconds = value;
+                            const hours = Math.floor(seconds / 3600);
+                            const minutes = Math.floor((seconds % 3600) / 60);
+                            const secs = seconds % 60;
+
+                            // Return formatted string
+                            if (hours > 0) {
+                                return `${hours}h ${minutes}m ${secs}s`;
+                            } else if (minutes > 0) {
+                                return `${minutes}m ${secs}s`;
+                            } else {
+                                return `${secs}s`;
+                            }
+                        }
                     },
                     grid: {
                         display: false
@@ -75,16 +93,25 @@ const createChart = (ctx, label, data, borderColor, backgroundColor, yAxisLabel)
             plugins: {
                 zoom: {
                     zoom: {
-                        wheel: { enabled: true },
-                        pinch: { enabled: true },
-                        mode: 'x',
+                        enabled: true, // Enable zooming
+                        mode: 'xy', // Zoom in both x and y directions
+                        wheel: {
+                            enabled: false // Disable zoom on wheel scroll
+                        },
+                        pinch: {
+                            enabled: false // Disable zoom on pinch
+                        },
+                        drag: {
+                            enabled: true // Enable zoom on drag
+                        }
                     },
                     pan: {
-                        enabled: true,
-                        mode: 'x',
+                        enabled: true, // Enable panning
+                        mode: 'xy', // Pan in both x and y directions
+                        speed: 10, // Adjust speed of panning
+                        threshold: 10 // Minimum amount of pixels to pan before it starts
                     }
                 },
-                chartAreaBorder: true,
                 annotation: {
                     annotations: {
                         powerOnOffLines: {
@@ -103,18 +130,18 @@ const createChart = (ctx, label, data, borderColor, backgroundColor, yAxisLabel)
                     }
                 }
             }
-        },
-        plugins: [chartAreaBorderPlugin]
+        }
     });
 };
+
 
 log('Initializing charts...');
 const doseRateChart = createChart(
     document.getElementById('dose-rate-chart').getContext('2d'),
     'Dose Rate',
     doseRateData,
-    'red',
-    'rgba(255, 0, 0, 0.3)',
+    'orange',
+    'rgba(255, 165, 0, 0.3)',
     'uSv/h'
 );
 
@@ -122,8 +149,8 @@ const accumulatedDoseChart = createChart(
     document.getElementById('accumulated-dose-chart').getContext('2d'),
     'Total Dose',
     accumulatedDoseData,
-    'blue',
-    'rgba(0, 0, 255, 0.3)',
+    'green',
+    'rgba(0, 255, 0, 0.3)',
     'uSv'
 );
 
@@ -131,8 +158,8 @@ const deadtimeChart = createChart(
     document.getElementById('deadtime-chart').getContext('2d'),
     'Deadtime',
     deadtimeData,
-    'green',
-    'rgba(0, 255, 0, 0.3)',
+    'red',
+    'rgba(255, 0, 0, 0.3)',
     '%'
 );
 
@@ -140,8 +167,8 @@ const countsPerSecondChart = createChart(
     document.getElementById('counts-per-second-chart').getContext('2d'),
     'Counts Per Second',
     countsPerSecondData,
-    'orange',
-    'rgba(255, 165, 0, 0.3)',
+    'blue',
+    'rgba(0, 0, 255, 0.3)',
     'Counts'
 );
 
@@ -442,3 +469,14 @@ function processData(fullLog) {
 
     return { resetPoints, timeData, doseRateData, accumulatedDoseData, deadtimeData, countsPerSecondData, batteryData };
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('reset-zoom-button').addEventListener('click', () => {
+        // Reset zoom for each chart
+        doseRateChart.resetZoom();
+        accumulatedDoseChart.resetZoom();
+        deadtimeChart.resetZoom();
+        countsPerSecondChart.resetZoom();
+        batteryChart.resetZoom();
+    });
+});  
