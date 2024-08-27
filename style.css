@@ -83,12 +83,12 @@ html, body {
     position: fixed; 
     color: var(--main-color); 
     background-color: var(--bg-color); 
-    right: 3%; 
-    margin-top: 1.5%; 
-    font-size: 1.1rem; 
     padding: 5px; 
     line-height: 1.4rem; 
     border-radius: 10px; 
+    right: 3%; 
+    margin-top: 1.5%; 
+    font-size: 1.1rem; 
 }
 
 .log a {
@@ -294,13 +294,15 @@ ul li a {
 }
 .king-center {
     left: 0; 
-    transform: scale(0.15); 
+    width: 40%; 
+    height: auto; 
     transform-origin: left; 
     position: absolute; 
 }
 .wallenberg {
-    right: 0; 
-    transform: scale(0.5); 
+    right: 180px; 
+    width: 20%; 
+    height: auto;  
     transform-origin: left;
     position: absolute; 
 }
@@ -692,15 +694,19 @@ ul li a {
     }
 }
 
+
 @media (max-width: 500px) {
     .king-center {
-        transform: scale(0.1); 
-        padding-left: 60%; 
+        width: 25%;
+        left: 80px; 
+        height: auto; 
         padding-bottom: 15%; 
     }
     .wallenberg {
-        transform: scale(0.4); 
-        padding-bottom: 10%; 
+        width: 13%;
+        height: auto; 
+        right: 230px; 
+        padding-bottom: 15%; 
     }
 
     .comm h2, 
