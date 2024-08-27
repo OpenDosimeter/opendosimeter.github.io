@@ -338,12 +338,14 @@ ul li a {
 }
 
 .comm p a, 
+.join p a,
 .comm p span {
     color: var(--main-color); 
     font-weight: bold;
 }
 
-.comm p a {
+.comm p a, 
+.join p a {
     text-decoration: none; 
     border-bottom: 3px solid var(--main-color); 
 }
