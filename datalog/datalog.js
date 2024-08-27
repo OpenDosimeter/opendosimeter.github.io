@@ -280,7 +280,10 @@ document.getElementById('download-button').addEventListener('click', () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'datalog.csv';
+    const now = new Date();
+    const timestamp = now.toISOString().replace(/:/g, '-').replace('Z', '');
+    const filename = `datalog-${timestamp}.csv`
+    a.download = filename;
     a.click();
     URL.revokeObjectURL(url);
     log('CSV file downloaded.');
@@ -359,7 +362,10 @@ document.getElementById('download-pdf-button').addEventListener('click', async (
     }
     await addChartToPDF(batteryChart, 'Battery (%)', yPosition);
 
-    pdf.save('open_dosimeter_log_vector.pdf');
+    const now = new Date();
+    const timestamp = now.toISOString().replace(/:/g, '-').replace('Z', '');
+    const filename = `datalog-${timestamp}.pdf`;
+    pdf.save(filename);
     log('Vector PDF file downloaded.');
 });
 
