@@ -213,35 +213,43 @@ ul li a {
     font-weight: bold; 
 }
 
-.arxive-logo {
-    width: 120px; 
-    height: auto;  
-    text-decoration: none; 
-    margin-left: 2%; 
-}
-
-
-.bx {
-    font-size: 4rem; 
-    text-decoration: none; 
-    color: #000; 
-    padding-left: 28%; 
-}
-
-.social-container {
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    width: 75%; 
-    justify-content: center;
-    margin: 3% auto 0; 
-    gap: 5%; 
-}
-
-
 .social-icon {
+    display: flex;
     padding: 50px; 
-    background-color: var(--bg-color-2);
     border-radius: 10px; 
+    background-color: var(--bg-color-2);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .bx {
+    font-size: 4rem;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .arxive-logo {
+    width: 120px;
+    height: auto;
+  }
+
+  .social-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 75%;
+  margin: 3% auto 0;
+  justify-content: center;
+  justify-items: center; 
+  gap: 5%;
 }
 
 .social-icon p {
@@ -251,9 +259,6 @@ ul li a {
     color: var(--text-color-2);
     font-size: 1.2rem; 
     line-height: 1.6rem;
-}
-.social-icon:nth-child(3) p {
-    margin-top: 22%; 
 }
 
 .bx:hover {
@@ -338,7 +343,7 @@ ul li a {
 }
 
 .comm p a, 
-.join p a,
+.join p a, 
 .comm p span {
     color: var(--main-color); 
     font-weight: bold;
@@ -654,7 +659,7 @@ ul li a {
     }
     .comm h2, 
     .join h2 {
-        margin-top: 15%; 
+        margin-top: 9%; 
     }
 }
 
@@ -726,6 +731,3 @@ ul li a {
         margin-top: -230px; 
     }
 }
-
-
-
