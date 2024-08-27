@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="datalog.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> <!-- Link to the font Inter in Google Font-->
 
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.0.0/dist/chartjs-plugin-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
@@ -16,14 +17,16 @@
 
 </head>
 <body>
-    <h1>Download dose log</h1>
-    <p>This web interface allows makers of OpenDosimeter to connect their device through USB, then visualize the stored dose log with the options to download the data as a .csv file for further analysis.  </p>
+    <h1>Data Log</h1>
+    <p>The Data Log is a web interface for visualizing data from hardware. It allows you to connect with the pico inside the openDosimeter to see plots of your dose rate, 
+        accumulated dose, deadtime, CPS, and battery life since last reset. You can easily download the data as a CSV or PDF format for further analysis. </p>
     <div class="buttons">
         <button class="btn" id="connect-button">Connect to Pico</button>
         <button class="btn" id="print-log-button" disabled>Print Log</button>
         <button class="btn" id="clear-button">Clear</button>
         <button class="btn" id="download-button" disabled>Download CSV</button>
         <button class="btn" id="download-pdf-button" disabled>Download PDF</button>
+        <button class="btn" id="reset-zoom-button">Reset Zoom</button>
     </div>
 
     <div id="console-window"></div>
