@@ -1,0 +1,636 @@
+/* Sets colors and initializes borders */
+* {
+    --bg-color: #f6f4ee;
+    --transparent-bg-color: rgba(246, 244, 238, 0.4); 
+    --bg-color-2: #f1eee5;
+    --bg-color-3: #eceae1;
+    --text-color-1: #211f1e;
+    --text-color-2: #767470; 
+    --main-color: #02b937;  /* Picked from OpenDosimeter Logo*/
+    --transparent-main-color: rgba(2, 185, 55, 0.4); 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html, body {
+    background-color: var(--bg-color);
+    font-family: 'inter', sans-serif; 
+}
+
+/* HEADER STYLING ********************************************************************************************/
+.header {
+    top:0; 
+    left: 0; 
+    position: fixed; 
+    height: 80px; 
+    width: 100%; 
+    background-color: var(--bg-color);
+    z-index: 100; 
+}
+
+.header-title {
+    padding-left: 1%; 
+    padding-top: 1.5%; 
+    position: fixed; 
+    color: var(--text-color); 
+    font-size: 2.5rem; 
+    transition: all 300ms ease-in-out;
+    text-decoration: none;
+    top: 0; 
+}
+
+.header-title:hover {
+    cursor: pointer; 
+    transform: scale(1.05); 
+}
+
+/* NAVBAR */
+#menu-icon {  /* Initially hide the menu icon, display on narrow  */
+    display: none; 
+}
+
+.navbar{
+    position: fixed; 
+    top: 0; 
+    left: 50%; 
+    padding-top: 2%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+    font-size: 1.1rem; 
+    opacity: 1;
+}
+
+.navbar a {
+    margin-right: 2rem;
+    color: var(--text-color-1);
+    text-decoration: none; /* removes the hyperlink underline*/
+    transition: all 300ms ease-in-out; 
+}
+
+/* Styling for navbar when a tab is hovered */
+.navbar a:hover, 
+.navbar a:active {
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    transform: translateY(-3px);
+}
+
+.log {
+    position: fixed; 
+    color: var(--main-color); 
+    background-color: var(--bg-color); 
+    right: 3%; 
+    margin-top: 1.5%; 
+    font-size: 1.1rem; 
+    padding: 5px; 
+    line-height: 1.4rem; 
+    border-radius: 10px; 
+}
+
+.log a {
+    display:inline-block; 
+    color: var(--text-color-1); 
+    text-decoration: none; 
+    background-color: var(--transparent-main-color); 
+    padding: 5px; 
+    border-radius: 10px; 
+    transition: transform 0.3s ease;
+}
+
+.log a:hover, 
+.log a:active {
+    transform: scale(1.1); 
+}
+
+/* OVERVIEW STYLING ********************************************************************************************/
+#overview {
+    margin-top: 5%; 
+    margin-left: 5%; 
+    margin-right: 5%; 
+}
+
+.description {
+    font-size: 3rem; 
+    color: var(--text-color-1); 
+    max-width: 50%; 
+    padding-top: 7%; 
+    padding-left: 20%;
+}
+
+.device-img {
+    width: 600px; 
+    height: 600px; 
+    margin-right: 14%; 
+    margin-top: -400px; 
+    transform: rotate(-12deg);
+    float:right; 
+}
+
+
+.description span {
+    font-weight: bold; 
+    color: var(--main-color); 
+    text-shadow: 0 0 40px var(--main-color); 
+}
+
+#problem {
+    background-color: var(--bg-color-2); 
+    border-radius: 10px; 
+    padding: 20px; 
+    text-align: center;
+    width: 45%; 
+    justify-content: center;
+    margin: 13% auto 0; 
+    line-height: 2rem;
+}
+
+#solution {
+    background-color: var(--bg-color-2); 
+    border-radius: 10px; 
+    padding: 20px; 
+    text-align: center;
+    width: 60%; 
+    justify-content: center;
+    margin: 3% auto 0; 
+}
+
+h2 {
+    text-align: center; 
+    justify-content: center;
+    color: var(--text-color-1); 
+    font-size: 2rem; 
+    font-weight: normal; 
+    padding: 10px;
+}
+
+section p {
+    color: var(--text-color-2);
+    font-size: 1.2rem; 
+    line-height: 2rem; 
+}
+
+#specs {
+    background-color: var(--bg-color-2); 
+    border-radius: 10px; 
+    padding: 20px; 
+    text-align: left;
+    width: 75%; 
+    justify-content: left;
+    margin: 3% auto 0; 
+}
+
+#specs h2 {
+    text-align: center; 
+}
+
+ul {
+    list-style-type: none; 
+    padding-left: 20px; 
+    line-height: 2rem; 
+    margin: 0; 
+}
+
+ul li {
+    color: var(--text-color-2);
+    font-size: 1.2rem; 
+    line-height: 1.6rem; 
+    margin-bottom: 10px; 
+}
+
+ul li a {
+    text-decoration: none; 
+    color: var(--main-color); 
+    font-weight: bold; 
+    border-bottom: 2px solid var(--main-color); 
+}
+
+#specs span {
+    color: var(--main-color); 
+    font-weight: bold; 
+}
+
+.arxive-logo {
+    width: 120px; 
+    height: auto;  
+    text-decoration: none; 
+    margin-left: 2%; 
+}
+
+
+.bx {
+    font-size: 4rem; 
+    text-decoration: none; 
+    color: #000; 
+    padding-left: 28%; 
+}
+
+.social-container {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    width: 75%; 
+    justify-content: center;
+    margin: 3% auto 0; 
+    gap: 5%; 
+}
+
+
+.social-icon {
+    padding: 50px; 
+    background-color: var(--bg-color-2);
+    border-radius: 10px; 
+}
+
+.social-icon p {
+    margin-top: 20%; 
+    text-align: center; 
+    padding-bottom: 0%; 
+    color: var(--text-color-2);
+    font-size: 1.2rem; 
+    line-height: 1.6rem;
+}
+.social-icon:nth-child(3) p {
+    margin-top: 22%; 
+}
+
+.bx:hover {
+    filter:
+        drop-shadow(0 0 10px var(--transparent-main-color))
+        drop-shadow(0 0 25px var(--transparent-main-color));
+}
+
+.img-wrapper {
+    display:inline-block; 
+}
+
+.social-icon img:hover {
+    filter:
+            drop-shadow(0 0 10px var(--transparent-main-color))
+            drop-shadow(0 0 20px var(--transparent-main-color))
+            drop-shadow(0 0 30px var(--transparent-main-color));
+}
+
+.funding {
+    width: 100%; 
+    text-align: center; 
+}
+.funding h2 {
+    padding-top: 3%; 
+}
+
+.fund-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative; 
+    align-items: center;
+    justify-content: center;
+    margin-left: calc(50% - 225px); 
+    margin-top: 50px; 
+    width: 550px; 
+    padding-bottom:10%; 
+}
+.king-center {
+    left: 0; 
+    transform: scale(0.15); 
+    transform-origin: left; 
+    position: absolute; 
+}
+.wallenberg {
+    right: 0; 
+    transform: scale(0.5); 
+    transform-origin: left;
+    position: absolute; 
+}
+
+/* COMMUNITY STYLING  ******************************************************************************************/
+#community, #getInvolved{
+    text-align: center;   
+}
+
+.comm h2, .join h2{
+    padding-top: 8%; 
+}
+
+.join {
+    padding-bottom: 4%; 
+}
+/* Developer and Partner cards use the same styling for consistency  */
+.dev-card h2 {
+    font-size: 1.5rem; 
+    padding-bottom: 3%; 
+}
+
+.dev-card h3 {
+    font-size: 1rem;
+    font-weight: 100;
+    padding-bottom: 5%;
+}
+
+.comm p, 
+.join p {
+    margin-top: 0.5%; 
+    padding: 0 15%;
+}
+
+.comm p a, 
+.comm p span {
+    color: var(--main-color); 
+    font-weight: bold;
+}
+
+.comm p a {
+    text-decoration: none; 
+    border-bottom: 3px solid var(--main-color); 
+}
+
+.story {
+    padding-right: 15%; 
+    margin-top: 2%; 
+    display: flex; 
+    justify-content: left;
+    align-items: right;
+}
+.story p {
+    max-width: 100%;
+    line-height: 2rem;
+}
+
+.story img {
+    max-width: 30%;
+    max-height: 30%;
+    object-fit: contain;
+}
+
+.dev-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* creates a grid with 3 columns */
+    width: 90%; 
+    margin: 3% auto 0; 
+    gap: 2rem; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+    justify-items: center;
+}
+
+.dev-card {
+    background-color: var(--bg-color-3); 
+    border-radius: 10px;  
+}
+
+.dev-img {
+    padding-top: 10%; 
+    width: 60%; 
+    height: auto; 
+    padding-bottom: 2%; 
+}
+
+.dev-card p {
+    padding: 0 10% 10%; 
+}
+/* Nairobi Photos */
+.photo-container {
+    padding-top: 3%; 
+    padding-bottom: 3%;
+}
+
+.photo {
+    padding: 7px; 
+    width: 20%; 
+    height: auto;
+}
+
+.partner-img {
+    padding-top: 5%; 
+    width: 70%; 
+    height: auto; 
+    padding-bottom: -8%; 
+}
+/* GET INVOLVED STYLING  ******************************************************************************************/
+
+.build span {
+    color: var(--main-color); 
+    font-weight: bold; 
+    border-bottom: 3px solid var(--main-color); 
+}
+
+.partners {
+    padding-bottom: 5%; 
+}
+
+/* WINDOW RESIZING ***********************************************************************************************/
+
+@media (max-width: 1415px) {
+    .device-img {
+        margin-right: 8%; 
+        margin-top: -450px; 
+    } 
+}
+
+@media (max-width: 1300px) {
+    .navbar {
+        padding-left: 5%; 
+    }
+}
+
+@media (max-width: 1240px) {
+    .description {
+        font-size: 2.5rem; 
+    }
+    .device-img {
+        width: 450px; 
+        height: 450px; 
+        margin-right: 15%; 
+        margin-top: -330px;
+    }
+}
+@media (max-width: 1179px) {
+    .device-img {
+        margin-top: -360px; 
+    }
+}
+
+@media (max-width: 1155px) {
+    #menu-icon {
+        margin-top: 50px; 
+        position: fixed; 
+        top: 2%; 
+        right: -6%; 
+        z-index: 100; 
+        transform: scale(0.5);
+        display: block; 
+        /* animation: 0.5s appear 0.6s ease-in-out forwards;  */
+    }
+    #menu-icon:hover {
+        filter: none; 
+        cursor: pointer; 
+    }
+
+    .navbar {
+        position: fixed; 
+        top: 20px; 
+        margin-top: 80px; 
+        right: 0; 
+        left: auto; 
+        transform: none; 
+        width: 200px; 
+        opacity: 0;
+        display: none; 
+        background-color: var(--bg-color);
+    }
+
+    .navbar a {
+        margin: 20px; 
+        text-align: center;
+    }
+    
+
+    .navbar.active {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        opacity: 1; 
+    }
+}
+@media (max-width: 1100px) {
+    .device-img {
+        margin-right: 12%; 
+    }
+}
+
+@media (max-width: 1030px) {
+    .device-img {
+        margin-right: 7%; 
+        margin-top: -390px; 
+    }
+}
+
+@media (max-width: 934px) {
+    #problem {
+        width: 40%; 
+    }
+    #solution {
+        width: 60%; 
+    }
+    #specs {
+        width: 80%; 
+    }
+    .story p {
+        font-size: 1.0rem; 
+        line-height: 1.7rem; 
+    }
+    .story img {
+        max-width: 35%; 
+        max-height: 35%; 
+    }
+    .comm h2, 
+    .join h2 {
+        margin-top: 5%; 
+    }
+}
+
+@media (max-width: 880px) {
+    .description {
+        padding-top: 15%; 
+        font-size: 2rem; 
+        padding-left: 10%; 
+    }
+    .device-img {
+        height: 375px; 
+        width: 375px; 
+        margin-right: 3%; 
+        margin-top: -270px; 
+    }
+}
+
+@media (max-width: 715px) {
+    .social-container {
+        width: 30%; 
+    }
+    .social-icon {
+        padding: 20px; 
+    }
+    #problem {
+        width: 60%; 
+    }
+    #solution {
+        width: 75%; 
+    }
+    #specs {
+        width: 90%; 
+    }
+    h2 {
+        font-size: 1.5rem; 
+    }
+}
+
+@media (max-width: 696px) {
+    .device-img {
+        margin-top: -300px; 
+        margin-right: -2%; 
+    }
+}
+
+@media (max-width: 640px) {
+    .device-img {
+        height: 300px; 
+        width: 300px;  
+        margin-top: -265px; 
+    }
+    .description {
+        padding-left: 5%; 
+    }
+}
+
+@media (max-width: 580px) {
+    .device-img {
+        width: 250px; 
+        height: 250px;
+        margin-top: -200px; 
+    }
+    .description {
+        font-size: 1.6rem; 
+        padding-left: 7%; 
+        line-height: 2.0rem;
+        padding-top: 30%;
+    }
+    .comm h2, 
+    .join h2 {
+        margin-top: 9%; 
+    }
+}
+
+@media (max-width: 526px) {
+    .device-img {
+        margin-top: -250px; 
+    }
+    .bx:nth-child(1) {
+        padding-left: 25%;
+    }
+    .social-container {
+        width: 20%; 
+    }
+    .social-icon p {
+        font-size: 1.0rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .device-img {
+        margin-top: -230px; 
+    }
+}
+
+@media (max-width: 550px) {
+    .log {
+        display: none; 
+    }
+    #menu-icon {
+        top: -4%; 
+    }
+
+    .navbar {
+        margin-top: 30px; 
+    }
+}

@@ -1,0 +1,64 @@
+* {
+    --bg-color: #f6f4ee;
+    --transparent-bg-color: rgba(246, 244, 238, 0.4); 
+    --bg-color-2: #f1eee5;
+    --bg-color-3: #eceae1;
+    --text-color-1: #211f1e;
+    --text-color-2: #767470; 
+    --main-color: #02b937;  /* Picked from OpenDosimeter Logo*/
+    --transparent-main-color: rgba(2, 185, 55, 0.4); 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-weight: 3;
+}
+
+#console-window {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    font-family: monospace;
+    background-color: var(--bg-color-2);
+}
+
+.buttons {
+    display: flex; 
+    justify-content: space-between;
+    gap: 10px; 
+    padding-bottom: 2%; 
+}
+.btn {
+    width: 15%; 
+    padding: 6px; 
+    font-size: 1.1rem; 
+    text-align: center;
+    background-color: var(--bg-color-2);
+    border-radius: 15px; 
+}
+
+#btn {
+    margin-left: 5%;
+}
+
+
+html, body {
+    background-color: var(--bg-color);
+    font-family: 'inter', sans-serif; 
+    padding-top: 50px; 
+    padding-left: 5%; 
+    padding-right: 5%;
+    padding-bottom: 2%; 
+}
+
+h1 {
+    text-align: center; 
+    padding-bottom: 2%; 
+}
+
+p {
+    text-align: center; 
+    font-size: 1.3rem; 
+    padding-bottom: 3%; 
+    color: var(--text-color-2);
+}

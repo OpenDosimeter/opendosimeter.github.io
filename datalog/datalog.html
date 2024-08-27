@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenDosimeter</title>
+    <link rel="stylesheet" href="datalog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> <!-- Link to the font Inter in Google Font-->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg2pdf.js/2.3.1/svg2pdf.min.js"></script>
+
+</head>
+<body>
+    <h1>Download dose log</h1>
+    <p>This web interface allows makers of OpenDosimeter to connect their device through USB, then visualize the stored dose log with the options to download the data as a .csv file for further analysis.  </p>
+    <div class="buttons">
+        <button class="btn" id="connect-button">Connect to Pico</button>
+        <button class="btn" id="print-log-button" disabled>Print Log</button>
+        <button class="btn" id="clear-button">Clear</button>
+        <button class="btn" id="download-button" disabled>Download CSV</button>
+        <button class="btn" id="download-pdf-button" disabled>Download PDF</button>
+    </div>
+
+    <div id="console-window"></div>
+
+    <div class="chart-container">
+        <canvas id="dose-rate-chart"></canvas>
+        <canvas id="accumulated-dose-chart"></canvas>
+        <canvas id="deadtime-chart"></canvas>
+        <canvas id="counts-per-second-chart"></canvas>
+        <canvas id="battery-chart"></canvas>
+    </div>
+
+    <script src="datalog.js"></script>
+</body>
+</html>

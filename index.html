@@ -3,67 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenDosimeter - Coming Soon</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            max-width: 800px;
-            width: 100%;
-        }
-        .image-container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            height: 300px; /* Set a fixed height for the container */
-        }
-        .image-wrapper {
-            width: 48%;
-            height: 100%;
-        }
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Preserve aspect ratio */
-            object-position: center; /* Center the image */
-        }
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- links CSS to HTML -->
+    <link rel="icon" href="imgs/favicon.png" type="image/x-icon">  <!-- This is the icon at the top of the tab (bookmark icon) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- This imports icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> <!-- Link to the font Inter in Google Font-->
+
+    <title>OpenDosimeter</title> 
 </head>
-<body>
-    <div class="container">
-        <div class="image-container">
-            <div class="image-wrapper">
-                <img src="OpenDosimeter_logo.png" alt="OpenDosimeter logo" />
+    <!-- HEADER -->
+    <header class="header">
+        <a href="#overview" class="header-title">OpenDosimeter</a>
+
+        <!-- NAVIGATION BAR -->
+        <i class="bx bx-menu" id="menu-icon"></i>  <!-- bx-menu icon is used on mobile displays to access navbar -->
+        <nav class="navbar">
+            <a href="#overview">Overview</a>
+            <a href="#community">Community</a>
+            <a href="#getInvolved">Get Involved</a>
+
+        </nav>
+        <div class="log">
+            <a href="#dataLog">Download Dose Log</a>
+        </div>
+    </header>
+
+    <!-- OVERVIEW (Landing Page) -->
+     <div id="overview">
+        <section class="description">The <span>first</span> low-cost dosimeter with open-source hardware and software.</section>
+        <img class ="device-img" src="imgs/green.png" alt="Photo of device">
+
+        <!-- Problem Section -->
+        <section id="problem">
+            <h2>The Problem</h2>
+            <p> For radiation workers, dose monitoring from exposure to X-ray radiation is critical, making wearable dosimeters invaluable to ensure safe practices. While there is little data on the global availability of personal dosimeters, many workers experience limited or non-existent access. Traditional dosimeters can be prohibitively expensive, and require complicated logistics around calibration, read-out, and reporting - all leading to radiation workers having restricted insight into their own exposure levels.</p>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution">
+            <h2>Our Solution</h2>
+            <p><b>OpenDosimeter</b> addresses these challenges with a low-cost, open-source, real-time dosimeter that is calibrated using Am-241 from a household ionization smoke detector. This eliminates the need to rely on external infrastructure for calibration and read-out. Lastly, the <b><i>open design</i></b> allows anyone to replicate and build their own personal dosimeter, empowering radiation workers to monitor their exposure more effectively with real-time feedback. The OpenDosimeter also acts as a reference design that invites people to make derivatives adapted to their needs. </p>
+        </section>
+
+        <!-- Technical Specifications -->
+        <section id="specs">
+            <h2>Technical Specifications</h2>
+            <ul>
+                <li><span>Open design: </span> Hardware and software designs are fully open-source, enabling reproducibility and customization</li>
+                <li><span>Affordable: </span> Total cost to build one is below $100</li>
+                <li><span>Compact: </span> Small in size, measuring 73 mm x 42 mm x 23 mm with the case</li>
+                <li><span>Accurate: </span> Current software version enables dose rate accuracy between around <b>0.5 µSv/h to 1 mSv/h</b> (±20% accuracy), with an upcoming software upgrade enabling up to 50 mSv/h (in development)</li>
+                <li><span>Battery-powered: </span> Up to 20 hours of battery life (<70 mA @ 3.7V, 1200 mAh LiPo battery)</li>
+                <li><span>Calibratable: </span> Using Am-241 from any household ionization smoke detector for spectral/dose calibration </li>
+                <li><span>Real-time: </span> Direct feedback on radiation exposure, compared to passive dosimeters (e.g., OSL or TLD badges) requiring external readout</li>
+                <li><span>Data logging: </span> The last 10 hours of dose values are stored on the device; extracted through USB connection and our web-interface
+                <a href="#dataLog">here</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Social Links -->
+        <div class="social-container">
+            <!-- GitHub -->
+            <div class="github social-icon">
+                <a href="https://github.com/OpenDosimeter/OpenDosimeter" class="bx bxl-github" ></a>
+                <p>Open-source documentation and build instructions!</p>
             </div>
-            <div class="image-wrapper">
-                <img src="OpenDosimeter_photo.jpg" alt="OpenDosimeter device" />
+            <!-- YouTube -->
+            <div class="youtube social-icon">
+                <a href="https://www.youtube.com/@opendosimeter" class="bx bxl-youtube" ></a>
+
+                <p>Video tutorials on our YouTube channel. 
+                    @OpenDosimeter
+                </p>
+            </div>
+            <!-- ArXive -->
+            <div class="arxive social-icon">
+                <a href="#" class="arxive" >
+                    <div class="img-wrapper">
+                        <img src="imgs/arxiv.png" alt="arXiv Logo" class="arxive-logo">
+                    </div>
+                </a>
+                <p>Technical paper coming soon on ArXiv (Sept 2024) </p>
             </div>
         </div>
-        <p>Page under construction - check back in September 2024!</p>
-        <p>For now, check out our <a href="https://github.com/OpenDosimeter/OpenDosimeter" target="_blank">OpenDosimeter GitHub page</a></p>
-    </div>
+
+        <!-- Funding Sources -->
+         <div class="funding">
+            <h2>Funding</h2>
+            <div class="fund-imgs">
+                <img src="imgs/king center.png" class="king-center" alt="King Center for Global Development">
+                <img src="imgs/wallenberg.png" class="wallenberg" alt="Knut and Allice Wallenberg Foundation">
+            </div>
+         </div>
+
+     </div>
+
+     <!-- COMMUNITY -->
+      <div id="community">
+        <!-- OpenDosimeter short story-->
+        <section class="comm" id="background">
+            <h2>The story behind OpenDosimeter</h2>
+            <div class="story">
+                <p>In February 2023, two strangers met in Nairobi: Kian, an X-ray imaging researcher, and Norah, a local radiologist. While Kian sought Norah's perspectives on the limitations of radiography, Norah pointed to a more pressing need: affordable radiation monitoring for her team. The seed for <b>OpenDosimeter</b> was planted: a mission to create an accessible, real-time radiation monitoring solution for healthcare workers globally. </p>
+                <img src="imgs/kian&norah.jpg" alt="">
+            </div>
+           
+        </section>
+        <!-- Developer -->
+        <section class="comm" id="developers">
+            <h2>Contributors</h2>
+            <p>These are the wonderful folks that have contributed to OpenDosimeter so far! Do you want to contribute to its future development? Head over to our <a href="https://github.com/OpenDosimeter/OpenDosimeter">GitHub repository</a> or send us an e-mail: <span>opendosimeter@gmail.com</span> </p>
+            <div class="dev-wrapper">
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/kian.png" alt="">
+                    <h2>Kian Shaker</h2>
+                    <h3>Stanford University</h3>
+                    <p><span>Project Lead</span><br>
+                     Hardware and software</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/norah.png" alt="">
+                    <h2>Norah Ger</h2>
+                    <h3>Nairobi County</h3>
+                    <p>Functionality and user design</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/alice.png" alt="">
+                    <h2>Alice Ku</h2>
+                    <h3>Stanford University</h3>
+                    <p>Hardware and 3D design</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/jasmyn.png" alt="">
+                    <h2>Jasmyn Lopez</h2>
+                    <h3>Stanford University</h3>
+                    <p>Open-source documentation</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/enoch.png" alt="">
+                    <h2>Enoch Anyenda</h2>
+                    <h3>University of Nairobi</h3>
+                    <p>Functionality and design feedback</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/grace.png" alt="">
+                    <h2>Grace Ateka</h2>
+                    <h3>Kenya Bureau of Standards</h3>
+                    <p>Characterization and implementation</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/jia.png" alt="">
+                    <h2>Jia Wang</h2>
+                    <h3>Stanford University</h3>
+                    <p>Functionality and characterization</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/robert.png" alt="">
+                    <h2>Robert Bennett</h2>
+                    <h3>Stanford University</h3>
+                    <p>Hardware and characterization</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/matthias.png" alt="">
+                    <h2>Matthias Rosezky</h2>
+                    <p>Hardware and software</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/adam.png" alt="">
+                    <h2>Adam Wang</h2>
+                    <h3>Stanford University</h3>
+                    <p>Functionality and design</p>
+                </div>
+
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/pamella.jpeg" alt="">
+                    <h2>Pamella Kilavi</h2>
+                    <h3>Strathmore University</h3>
+                    <p>Testing and implementation</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/placeholder.png" alt="">
+                    <h2>Vanessa Mukami Rugami</h2>
+                    <h3>Strathmore University</h3>
+                    <p>Testing and implementation</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/allan.jpg" alt="">
+                    <h2>Allan Vikiru</h2>
+                    <h3>Strathmore University</h3>
+                    <p>Testing and implementation</p>
+                </div>
+                <div class="dev-card">
+                    <img class="dev-img" src="imgs/jamleck.png" alt="">
+                    <h2>Jamleck Muthomi Ntonjira</h2>
+                    <h3>Strathmore University</h3>
+                    <p>Testing and implementation</p>
+                </div>
+
+            </div>
+        </section>
+        <!-- Collaborators -->
+        <section class="comm partners" id="collaborators">
+            <h2>Partners</h2>
+            <p>These are the partners collaborating on the OpenDosimeter so far. <br>Interested in partnering for implementation or scaling up? Send us an e-mail: <span>opendosimeter@gmail.com</span></p>
+            <div class="dev-wrapper">
+                <div class="dev-card">
+                    <img class="partner-img" src="imgs/rsl.png" alt="">
+                    <p>Radiological Sciences Laboratory<br>Stanford University</p>
+                </div>
+                <div class="dev-card">
+                    <img class="partner-img" src="imgs/strathmore.png" alt="">
+                    <p>Computing and Engineering Sciences<br>Strathmore University</p>
+                </div>
+                <div class="dev-card">
+                    <img class="partner-img" src="imgs/kebs.png" alt="">
+                    <p>Secondary Standards Dosimetry Laboratory<br>Kenyan Bureau of Standards</p>
+                </div>
+            </div>
+
+        </section>
+      </div>
+
+     <!-- GET INVOLVED -->
+     <div id="getInvolved">
+        <section class="join">
+            <h2>Get Involved</h2>
+            <p>Are you curious about OpenDosimeter and want to get involved? The more people who evaluate and implement the OpenDosimeter in their settings, the more impactful the project will be! Head over to our <a href="https://github.com/OpenDosimeter/OpenDosimeter">GitHub repository</a> for more information</p>
+        </section>  
+        <!-- Did You Build One? -->
+        <section class="build">
+            <h2>Did You Build One?</h2>
+            <p>We would love to see your device! Share your photos and progress with us: <span>opendosimeter@gmail.com</span> </p>
+        </section>
+        <!-- Photos from Nairobi -->
+        
+        <section class="comm" id="photos">
+            <h2>Pilot Workshop at Strathmore University</h2>
+            <p>In August 2024, we ran a collaborative workshop at the Strathmore University makerspace in Nairobi, Kenya. Based on the open-source documentation and provided components, students built their own OpenDosimeters and gave critical feedback on the device and documentation. This is an example of capacity-building activities in radiation safety that is possible with the OpenDosimeter. Photos of the workshop will be shared soon.</p>
+            <!-- 
+            <div class="photo-container">
+                <img class="photo" src="imgs/placeholder.png" alt="">
+                <img class="photo" src="imgs/placeholder.png" alt="">
+                <img class="photo" src="imgs/placeholder.png" alt="">
+                <img class="photo" src="imgs/placeholder.png" alt="">
+                <img class="photo" src="imgs/placeholder.png" alt="">
+                <img class="photo" src="imgs/placeholder.png" alt="">
+                <img class="photo" src="imgs/placeholder.png" alt="">
+            </div>
+        -->
+        </section>
+     </div>
+
+    <!-- DATA LOG -->
+     <div id="dataLog">
+        <iframe id="dataLogIFrame" src="datalog/datalog.html" style="width:100%; height:100vh; border:none;"></iframe>
+     </div>
+<body>
+    <script src="script.js"></script>  <!-- links JS file to HTML -->
 </body>
 </html>
